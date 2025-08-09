@@ -3,13 +3,26 @@ let calScreen = document.querySelector(".screen");
 let output = document.querySelector(".output");
 let outStr = "";
 let calStr = "";
-
+if(window.innerWidth <= 768) {
+        container.style.margin = "60px auto";
+        container.style.width = "280px";
+        container.style.height = "330px";
+        btns.style.height = "60px";
+        btns.style.width = "60px";
+        document.querySelector(".lineOne").width = "100%";
+    }
 for (let btn of btns) {
     btn.addEventListener("click", function () {
         calScreen.style.top = "-10px";
         calScreen.style.opacity = "1";
         calScreen.style.transition = "all 0s linear 0s";
         // output.innerText = ;
+        if(window.innerWidth <= 768) {
+            btn.addEventListener("touchstart", function() {
+                btn.style.backgroundColor = "rgb(20,179,124)";
+                btn.style.color = "purple";
+            });
+        }
         output.style.color = "rgb(160,177,177)";
         output.style.fontSize = "20px";
         output.style.top = "23px";
@@ -47,10 +60,22 @@ eqlBtn.addEventListener("click", function () {
     setTimeout(function () {
         eqlBtn.classList.remove("shadow");
     }, 250);
+    if(window.innerWidth <= 768) {
+            eqlBtn.addEventListener("touchstart", function() {
+                eqlBtn.style.backgroundColor = "rgb(20,179,124)";
+                eqlBtn.style.color = "purple";
+            });
+        }
 });
 
 let clearBtn = document.querySelector(".clearBtn");
 clearBtn.addEventListener("click", function() {
+    if(window.innerWidth <= 768) {
+            clearBtn.addEventListener("touchstart", function() {
+                clearBtn.style.backgroundColor = "rgb(20,179,124)";
+                clearBtn.style.color = "purple";
+            });
+        }
     calStr = "";
     outStr = "";
     calScreen.innerText = "";
